@@ -5,7 +5,7 @@
 # specify your own imagenet data path
 DATA='/home/jun/dataset/imagenet'
 
-for MODEL in 'resnet50' 
+for MODEL in 'resnet50'    # for MODEL in 'resnet50' 'inception_v3' 'mobilenet_v2' 
 do
     # evaluate the pretrained model with or w/o folding batch normalization
     python3 main.py -data=$DATA -a $MODEL
