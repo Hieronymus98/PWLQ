@@ -97,6 +97,15 @@ def main():
     checkpoint = model.state_dict()
     print('----- pretrained model loaded -----')
 
+    ## shk: Data structure of checkpoint
+    # {
+    #   'layer1.weight': tensor(...),
+    #   'layer1.bias': tensor(...),
+    #   'layer2.weight': tensor(...),
+    #   'layer2.bias': tensor(...),
+    #   ... (more parameters)
+    # }
+
     ## fold batch normalization
     if args.fold_bn:
         checkpoint, weight_layers = fold_batch_norm(checkpoint, arch=args.arch)
