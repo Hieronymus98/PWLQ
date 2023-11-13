@@ -80,7 +80,7 @@ def main():
     total_start_time = time.time()
     
     args = parser.parse_args()
-    print(str(args))
+    print(str(args))  # ksh: Show the values of the parsed arguments
     print()
 
     # use one GPU to get the activation stats 
