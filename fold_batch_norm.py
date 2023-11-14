@@ -34,17 +34,19 @@ def fold_batch_norm(checkpoint, arch='resnet50'):
     weight_layers, bn_layer_counts = [], 0
     layers_list = list(checkpoint.keys())
 
-    # ksh: 'layers_list' example in resnet18
+    # ksh: 'layers_list' example in resnet50
     # conv1.weight
     # bn1.weight
     # bn1.bias
     # bn1.running_mean
     # bn1.running_var
+    # bn1.num_batches_tracked
     # layer1.0.conv1.weight
     # layer1.0.bn1.weight
     # layer1.0.bn1.bias
     # layer1.0.bn1.running_mean
     # layer1.0.bn1.running_var
+    # layer1.0.bn1.num_batches_tracked
     # ... (more layers)
     
     if arch == 'resnet50':
