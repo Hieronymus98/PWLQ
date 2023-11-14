@@ -52,7 +52,7 @@ def quant_checkpoint(checkpoint, weight_layers, args):
     all_tail_num = 0
     for each_layer in sorted(weight_layers):
         
-        each_layer_weights = checkpoint[each_layer].clone()
+        each_layer_weights = checkpoint[each_layer].clone()   # ksh: (out_channels, in_channels, kernel_size[0], kernel_size[1])
 
         print('quantize for: %s, size: %s' % (each_layer, each_layer_weights.size()))
         print('weights range: (%.4f, %.4f)' % 
@@ -62,7 +62,7 @@ def quant_checkpoint(checkpoint, weight_layers, args):
         output_channel_num = each_layer_weights.size()[0]
         # channel-wise quant for each output channel
         for c in range(output_channel_num):  
-            w = each_layer_weights[c, :].clone()
+            w = each_layer_weights[c, :].clone()    # ksh: (in_channels, kernel_size[0], kernel_size[1])
             qw, err, tail_num = quant_weights(w, args)
 
             each_layer_weights[c, :] = qw
