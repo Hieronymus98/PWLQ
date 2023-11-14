@@ -62,11 +62,11 @@ def fold_batch_norm(checkpoint, arch='resnet50'):
     # layer1.0.downsample.1.num_batches_tracked
     # ... (more layers)
 
-    # shk: bn_base
+    # ksh: bn_base
     # layer1.0.bn1.running_mean -> layer1.0.bn1
     # layer1.0.downsample.1.running_mean -> layer1.0.downsample.1
     
-    # shk: conv_layer
+    # ksh: conv_layer
     # layer1.0.bn1.running_mean -> layer1.0.conv1.weight
     # layer1.0.downsample.1.running_mean -> layer1.0.downsample.0.weight
     
