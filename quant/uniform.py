@@ -36,7 +36,7 @@ def uniform_symmetric_quantizer(x, bits=8.0, minv=None, maxv=None, signed=True,
         scale = torch.round(torch.mul(scale, scale_levels)) / scale_levels
             
     ## clamp
-    x = torch.clamp(x, min=float(minv), max=float(maxv))
+    x = torch.clamp(x, min=float(minv), max=float(maxv))  # ksh: xi = min(max(minv, xi), maxv)
         
     x_int = torch.round(x / scale)
     
