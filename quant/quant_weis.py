@@ -17,6 +17,27 @@ def quant_checkpoint(checkpoint, weight_layers, args):
     '''
     Quantize the weights per-channel per-layer for a pre-trained checkpoint
     '''
+
+    # ksh: weight_layers at the case of resnet50
+    # bn1.weight
+    # layer1.0.bn1.weight
+    # layer1.0.bn2.weight
+    # layer1.0.bn3.weight
+    # layer1.0.downsample.0.weight
+    # layer1.1.bn1.weight
+    # layer1.1.bn2.weight
+    # layer1.1.bn3.weight
+    # layer1.2.bn1.weight
+    # layer1.2.bn2.weight
+    # layer1.2.bn3.weight
+    # layer2.0.bn1.weight
+    # layer2.0.bn2.weight
+    # layer2.0.bn3.weight
+    # layer2.0.downsample.0.weight
+    # ...
+    # layer4.2.bn3.weight
+    # fc.weight
+    
     bits = args.wei_bits
     scale_bits = args.scale_bits
     bias_corr = args.bias_corr
