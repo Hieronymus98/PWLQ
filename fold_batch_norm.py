@@ -91,7 +91,12 @@ def fold_batch_norm(checkpoint, arch='resnet50'):
 
     return checkpoint, weight_layers
 
-
+'''
+ksh: If a mutable object, such as a list or dictionary, 
+is passed to a function and the function modifies the object in place, 
+the changes will affect the original object in the caller. 
+This is because mutable objects can be modified in place.
+'''
 def fold_batch_norm_for_one_layer(checkpoint, conv_layer, bn_base, var_eps=1e-5):
     conv_weights = checkpoint[conv_layer].clone()
 
