@@ -68,7 +68,7 @@ def fold_batch_norm(checkpoint, arch='resnet50'):
             if '.running_mean' in layer:
                 bn_base = layer.replace('.running_mean', '')    # ksh: ex) layer1.0.bn1.running_mean -> layer1.0.bn1 
                 if 'downsample' in layer:
-                    conv_layer_num = int(bn_base.split('.')[-1]) - 1
+                    conv_layer_num = int(bn_base.split('.')[-1]) - 1    # ksh: ex) layer1.0.downsample.1 -> conv_layer_num = 0
                     conv_layer = '.'.join(bn_base.split('.')[:-1] + [str(conv_layer_num), 'weight'])
                 else:
                     conv_layer = bn_base.replace('bn', 'conv') + '.weight'    # ksh: ex) layer1.0.bn1 -> layer1.0.conv1.weight
