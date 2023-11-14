@@ -107,7 +107,8 @@ def main():
     # }
 
     ## fold batch normalization
-    # ksh: 'weight_layers' refers to layers that have modified weight
+    # ksh: 'weight_layers' refers to all layers at resnet50 (conv1.weight, layerX.Y.convZ.weight, fc.weight)
+    # ksh: All layers except fc.weight have modified weights  
     if args.fold_bn:
         checkpoint, weight_layers = fold_batch_norm(checkpoint, arch=args.arch)
 
