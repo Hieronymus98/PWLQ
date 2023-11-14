@@ -19,23 +19,23 @@ def quant_checkpoint(checkpoint, weight_layers, args):
     '''
 
     # ksh: weight_layers at the case of resnet50
-    # bn1.weight
-    # layer1.0.bn1.weight
-    # layer1.0.bn2.weight
-    # layer1.0.bn3.weight
+    # conv1.weight
+    # layer1.0.conv1.weight
+    # layer1.0.conv2.weight
+    # layer1.0.conv3.weight
     # layer1.0.downsample.0.weight
-    # layer1.1.bn1.weight
-    # layer1.1.bn2.weight
-    # layer1.1.bn3.weight
-    # layer1.2.bn1.weight
-    # layer1.2.bn2.weight
-    # layer1.2.bn3.weight
-    # layer2.0.bn1.weight
-    # layer2.0.bn2.weight
-    # layer2.0.bn3.weight
+    # layer1.1.conv1.weight
+    # layer1.1.conv2.weight
+    # layer1.1.conv3.weight
+    # layer1.2.conv1.weight
+    # layer1.2.conv2.weight
+    # layer1.2.conv3.weight
+    # layer2.0.conv1.weight
+    # layer2.0.conv2.weight
+    # layer2.0.conv3.weight
     # layer2.0.downsample.0.weight
     # ...
-    # layer4.2.bn3.weight
+    # layer4.2.conv3.weight
     # fc.weight
     
     bits = args.wei_bits
