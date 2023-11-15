@@ -37,6 +37,10 @@ class QuantAct(nn.Module):    # ksh: 'QuantAct' is a subclass of 'nn.Module'
         self.register_buffer('minv', torch.zeros(stats_size))    # ksh: creates a buffer named 'minv' with the specified size (stats_size) and initializes it with zeros. 
         self.register_buffer('maxv', torch.zeros(stats_size))
 
+    # ksh: x represents the input to the forward method, which is typically the activation tensor. 
+    # ksh: In the context of neural networks, during the forward pass, 
+    # ksh: input data (or activations) flows through the layers of the network. 
+    # ksh: In this case, the forward method defines how the activation tensor should be processed.
     def forward(self, x):
         if self.get_stats:
             y = x.clone()
