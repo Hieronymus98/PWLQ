@@ -226,6 +226,11 @@ def validate(val_loader, model, criterion, args):
         [batch_time, losses, top1, top5],
         prefix='Test: ')
 
+    # ksh: len(val_loader) is the number of batches in the validation data loader. 
+    # ksh: It represents the total number of iterations or steps that will be performed during the validation process. 
+    # ksh: Each iteration processes a batch of validation data through the model, computes the loss and accuracy, 
+    # ksh: and updates the evaluation metrics.
+    
     # switch to evaluate mode
     model.eval()
 
