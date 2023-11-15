@@ -122,6 +122,6 @@ def quant_weights(w, args):
 
     abs_max = torch.max(torch.abs(w))
     break_point = abs_max * bkp_ratio
-    tail_num = np.sum(torch.abs(w).detach().numpy() > float(break_point))
+    tail_num = np.sum(torch.abs(w).detach().numpy() > float(break_point))    # ksh: tail_num = # of element, |element| > break_point
 
     return qw, err, tail_num
