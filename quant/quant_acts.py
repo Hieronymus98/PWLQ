@@ -43,8 +43,8 @@ class QuantAct(nn.Module):    # ksh: 'QuantAct' is a subclass of 'nn.Module'
     # ksh: In this case, the forward method defines how the activation tensor should be processed.
     def forward(self, x):
         if self.get_stats:
-            y = x.clone()
-            y = torch.reshape(y, (-1,))
+            y = x.clone()    # ksh: Deep copy (clone) of the input tensor 'x'.
+            y = torch.reshape(y, (-1,))    # ksh: Reshapes it into a 1-dimensional tensor. 
             y, indices = torch.sort(y)
             topk_mins = y[:self.topk]
             topk_maxs = y[-self.topk:]
