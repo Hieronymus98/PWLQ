@@ -13,7 +13,7 @@ from .uniform import *
 ####  Quantization of Activations 
 ##########################################################################################
 
-class QuantAct(nn.Module):
+class QuantAct(nn.Module):    # ksh: 'QuantAct' is a subclass of 'nn.Module'
     '''
     Quantize actications including:
     (1) the input of conv layer
