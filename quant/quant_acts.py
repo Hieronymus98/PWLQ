@@ -68,10 +68,10 @@ def quant_model_acts(model, act_bits, get_stats, cali_batch_size=4):
     """
     Add quantization of activations for a pretrained model recursively
     """
-    if type(model) in [nn.Conv2d, nn.Linear, nn.AdaptiveAvgPool2d]:
+    if type(model) in [nn.Conv2d, nn.Linear, nn.AdaptiveAvgPool2d]:    # ksh: Base Case (Leaf Modules) ex) torch.nn.modules.conv.Conv2d
         quant_act = QuantAct(act_bits, get_stats, cali_batch_size=cali_batch_size)
         return nn.Sequential(quant_act, model)
-    elif type(model) == nn.Sequential:
+    elif type(model) == nn.Sequential:    # ksh: Sequential Module. torch.nn.modules.container.Sequential
         modules = []
         for name, module in model.named_children():
             modules.append(quant_model_acts(module, act_bits, get_stats, cali_batch_size=cali_batch_size))
