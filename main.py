@@ -232,9 +232,11 @@ def validate(val_loader, model, criterion, args):
     # ksh: and updates the evaluation metrics.
     
     # switch to evaluate mode
-    model.eval()
+    model.eval()  # ksh: Sets the model to evaluation mode. 
 
-    with torch.no_grad():
+    # ksh: PyTorch doesn't track operations for gradient computation with torch.no_grad(). 
+    # ksh: This is useful during inference or validation when you don't need to compute gradients.
+    with torch.no_grad():  
         end = time.time()
         for i, (images, target) in enumerate(val_loader):
             if args.gpu is not None:
