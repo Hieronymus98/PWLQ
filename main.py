@@ -127,7 +127,7 @@ def main():
     model = quant_model_acts(model, args.act_bits, args.get_stats, args.batch_size)
     if args.quantize and not args.get_stats:
         act_stats_save_path = 'stats/%s_act_stats.pth' % args.arch
-        mode = load_model_act_stats(model, act_stats_save_path, args.act_clip_method)
+        mode = load_model_act_stats(model, act_stats_save_path, args.act_clip_method)  # ksh: You should set 'get_stats' true at the first run.
 
     # use GPU
     if args.gpu is not None:
