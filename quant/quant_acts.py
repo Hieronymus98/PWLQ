@@ -34,7 +34,7 @@ class QuantAct(nn.Module):    # ksh: 'QuantAct' is a subclass of 'nn.Module'
         self.topk = topk
         self.sample_batches = cali_sample_size // cali_batch_size
         stats_size = (self.sample_batches, self.topk) if self.get_stats else 1
-        self.register_buffer('minv', torch.zeros(stats_size))
+        self.register_buffer('minv', torch.zeros(stats_size))    # ksh: creates a buffer named 'minv' with the specified size (stats_size) and initializes it with zeros. 
         self.register_buffer('maxv', torch.zeros(stats_size))
 
     def forward(self, x):
