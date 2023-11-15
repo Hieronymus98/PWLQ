@@ -76,8 +76,8 @@ def quant_model_acts(model, act_bits, get_stats, cali_batch_size=4):
         for name, module in model.named_children():
             modules.append(quant_model_acts(module, act_bits, get_stats, cali_batch_size=cali_batch_size))
         return nn.Sequential(*modules)
-    else:
-        quantized_model = copy.deepcopy(model)
+    else:    # ksh: General Case (Non-leaf Modules)
+        quantized_model = copy.deepcopy(model)    # ksh: 'model' and 'quantized_model' don't affect each other if they are modified. 
         for attribute in dir(model):
             module = getattr(model, attribute)
             if isinstance(module, nn.Module):
